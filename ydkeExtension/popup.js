@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		} else {
 		  let resultText = "";
 		  for (const [category, names] of Object.entries(data)) {
-			resultText += `${category} deck:\n`;
 			for (const [name, count] of Object.entries(names)) {
 			  resultText += `${count}x ${name}\n`;
 			}
