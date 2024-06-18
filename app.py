@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import base64
-import re
 import numpy as np
 import requests
 from collections import Counter
@@ -11,9 +10,6 @@ CORS(app)
 
 def base64_to_passcodes(base64_string):
     return np.frombuffer(base64.b64decode(base64_string), dtype=np.uint32)
-
-def passcodes_to_base64(passcodes):
-    return base64.b64encode(passcodes.tobytes()).decode('utf-8')
 
 class TypedDeck:
     def __init__(self, main, extra, side):
