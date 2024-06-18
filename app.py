@@ -4,6 +4,7 @@ import base64
 import numpy as np
 import requests
 from collections import Counter
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -67,4 +68,4 @@ def process():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=int(os.environ.get("PORT", 5000)))
