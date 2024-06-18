@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('parseButton').addEventListener('click', () => {
 	  const ydkeUrl = document.getElementById('ydkeUrl').value;
-	  fetch('https://ydke-to-txt.herokuapp.com/process', {  // Update URL here
+	  fetch('https://ydke-txt.herokuapp.com/process', {  // Update URL here
 		method: 'POST',
 		headers: {
 		  'Content-Type': 'application/json'
