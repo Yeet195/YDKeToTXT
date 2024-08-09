@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	const parseButton = document.getElementById('parseButton');
 	const resultElement = document.getElementById('result');
 	const loadingSpinner = document.getElementById('loading-spinner');
+	const copyMessage = document.getElementById('copy-message');
 
 	parseButton.addEventListener('click', () => {
 		const ydkeUrl = document.getElementById('ydkeUrl').value;
 
-		// Show the loading spinner
+		// Show the loading spinner and hide the copy message
 		loadingSpinner.style.display = 'block';
+		copyMessage.style.display = 'none';
 		resultElement.textContent = ''; // Clear previous result
 
 		fetch('https://ydke-txt-45790110621c.herokuapp.com//process', {  // Update URL here
@@ -30,6 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
 					resultText += "\n";
 				}
 				resultElement.textContent = resultText;
+
+				// Copy the result to the clipboard
+				navigator.clipboard.writeText(resultText).then(() => {
+					// Show the copy message
+					copyMessage.style.display = 'block';
+				}).catch(err => {
+					console.error('Could not copy text: ', err);
+				});
 			}
 		})
 		.catch(error => {
