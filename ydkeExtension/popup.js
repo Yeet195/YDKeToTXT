@@ -3,16 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	const resultElement = document.getElementById('result');
 	const loadingSpinner = document.getElementById('loading-spinner');
 	const copyMessage = document.getElementById('copy-message');
+	const contentElement = document.getElementById('content');
 
 	parseButton.addEventListener('click', () => {
 		const ydkeUrl = document.getElementById('ydkeUrl').value;
 
-		// Show the loading spinner and hide the copy message
-		loadingSpinner.style.display = 'block';
+		// Hide the content and show the loading spinner
+		contentElement.style.display = 'none';
+		loadingSpinner.style.display = 'flex';
 		copyMessage.style.display = 'none';
 		resultElement.textContent = ''; // Clear previous result
 
-		fetch('https://ydke-txt-45790110621c.herokuapp.com//process', {  // Update URL here
+		fetch('https://ydke-txt-45790110621c.herokuapp.com/process', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -46,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			resultElement.textContent = `Fetch error: ${error}`;
 		})
 		.finally(() => {
-			// Hide the loading spinner
+			// Hide the loading spinner and show the content again
 			loadingSpinner.style.display = 'none';
+			contentElement.style.display = 'block';
 		});
 	});
 });
