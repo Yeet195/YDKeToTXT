@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	parseButton.addEventListener('click', () => {
 		const ydkeUrl = document.getElementById('ydkeUrl').value;
 
-		// Hide the content with a fade-out and scale-down animation
-		contentElement.classList.add('hidden');
-		loadingSpinner.classList.add('visible');
-		copyMessage.classList.remove('copy-visible');
+		// Hide the content and show the loading spinner
+		contentElement.style.display = 'none';
+		loadingSpinner.style.display = 'flex';
+		copyMessage.style.display = 'none';
 		resultElement.textContent = ''; // Clear previous result
 
 		fetch('https://ydke-txt-45790110621c.herokuapp.com/process', {
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				// Copy the result to the clipboard
 				navigator.clipboard.writeText(resultText).then(() => {
-					// Show the copy message with a fade-in effect
-					copyMessage.classList.add('copy-visible');
+					// Show the copy message
+					copyMessage.style.display = 'block';
 				}).catch(err => {
 					console.error('Could not copy text: ', err);
 				});
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			resultElement.textContent = `Fetch error: ${error}`;
 		})
 		.finally(() => {
-			// Hide the loading spinner and show the content again with a fade-in effect
-			loadingSpinner.classList.remove('visible');
-			contentElement.classList.remove('hidden');
+			// Hide the loading spinner and show the content again
+			loadingSpinner.style.display = 'none';
+			contentElement.style.display = 'block';
 		});
 	});
 });

@@ -4,12 +4,10 @@ body {
 	background-color: #2f2f33;
 	width: 450px;
 	height: 300px;
-	overflow: hidden;
 }
 
 h1 {
 	color: #ffffff;
-	transition: opacity 0.3s ease-in-out;
 }
 
 input[type="text"] {
@@ -18,7 +16,6 @@ input[type="text"] {
 	margin: 10px 0;
 	border: 1px solid #535252;
 	border-radius: 4px;
-	transition: all 0.3s ease-in-out;
 }
 
 button {
@@ -28,7 +25,6 @@ button {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-	transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
@@ -42,29 +38,6 @@ pre {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	white-space: pre-wrap;
-	transition: opacity 0.3s ease-in-out;
-	opacity: 0;
-}
-
-#content {
-	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-	transform: scale(1);
-	opacity: 1;
-}
-
-.hidden {
-	opacity: 0;
-	transform: scale(0.95);
-}
-
-#copy-message {
-	color: green;
-	transition: opacity 0.5s ease-in-out;
-	opacity: 0;
-}
-
-.copy-visible {
-	opacity: 1;
 }
 
 /* Spinner CSS */
@@ -74,18 +47,13 @@ pre {
 	border-radius: 50%;
 	width: 120px;
 	height: 120px;
-	animation: spin 1s linear infinite, fadeIn 0.5s ease-in-out;
+	animation: spin 2s linear infinite;
 	margin: auto;
 }
 
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
-}
-
-@keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
 }
 
 #loading-spinner {
@@ -101,12 +69,4 @@ pre {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.5s ease-in-out;
-}
-
-#loading-spinner.visible {
-	opacity: 1;
-	visibility: visible;
 }
