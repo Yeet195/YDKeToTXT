@@ -4,7 +4,7 @@ body {
 	background-color: #2f2f33;
 	width: 450px;
 	height: 300px;
-	overflow: hidden; /* Prevents scrollbar due to animations */
+	overflow: hidden;
 }
 
 h1 {
